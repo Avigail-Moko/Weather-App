@@ -1,0 +1,30 @@
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+.weather-out{
+  align-items: center;
+  text-align: center;
+  // background-color: green;
+}
+.weather-in{
+  // width: 50%;
+  text-align: center;
+  align-items: center;
+// background-color: aqua;
+}
+.example-card {
+  max-width: 400px;
+}
+mat-card-footer,mat-card-title{
+  padding: 9px 20px;
+}
+mat-card-content{
+  text-align: center;
+}
+mat-card-title{
+  margin-top: 10px;
+}
+.error-message {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,37 @@
+<mat-card class="example-card" style="opacity: 0.9;">
+  <mat-card-header>
+    <mat-card-subtitle>{{weatherData.name}},IL</mat-card-subtitle>
+    <mat-card-title
+      >Hello, and welcome to our online weather machine!</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <h3>
+      The weather is displayed for today <br> {{ today | date : "EEEE dd/MM" }} , {{
+        weatherData.name
+      }}<mat-icon class="place"> place</mat-icon>
+    </h3>
+    <h3 *ngIf="selectedUnit === 'C'">Temp: {{ weatherData.main.temp }}°C</h3>
+    <h3 *ngIf="selectedUnit === 'F'">
+      Temp: {{ (weatherData.main.temp * 9) / 5 + 32 | number : "1.0-2" }}°F
+    </h3>
+    <h3>{{ weatherData.weather[0].description }}</h3>
+    <h3 *ngIf="selectedUnit === 'C'">Feels like: {{ weatherData.main.feels_like }}°C</h3>
+    <h3 *ngIf="selectedUnit === 'F'">Feels like: {{ (weatherData.main.feels_like *9)/5+32|number:"1.0-2" }}°F</h3>
+    <h3>Humidity: {{ weatherData.main.humidity }}%</h3>
+
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-radio-group [(ngModel)]="selectedUnit" aria-label="Select an option">
+      <h3>
+        If you'd like to switch the temperature display from °C to °F, simply
+        use the button below. </h3>
+      <mat-radio-button value="C">°C</mat-radio-button>
+      <mat-radio-button value="F">°F</mat-radio-button>
+    </mat-radio-group>
+  </mat-card-footer>
+</mat-card>
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>

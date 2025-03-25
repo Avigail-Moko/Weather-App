@@ -1,0 +1,25 @@
+<mat-card class="example-card" style="opacity: 0.9;">
+    <mat-card-header>
+      <mat-card-subtitle>{{ cityName }},IL</mat-card-subtitle>
+      <mat-card-title>The forecast for {{ cityName }}<mat-icon> place</mat-icon></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="5" rowHeight="2:1">
+            <mat-grid-tile *ngFor="let day of limitedItems">
+              <mat-icon *ngIf="day.main.temp < 18">cloud</mat-icon>
+              <mat-icon *ngIf="day.main.temp >= 18">wb_sunny</mat-icon>
+              {{ day.dt_txt | date : "EEEE dd/MM" }}
+              <br />
+              {{ day.main.temp }}°C
+            </mat-grid-tile>
+          </mat-grid-list>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-footer>
+        <h2>Average temperature for the upcoming days {{avg | number : "1.0-2"}}°C
+            <mat-icon *ngIf="avg < 18">cloud</mat-icon>
+        <mat-icon *ngIf="avg >= 18">wb_sunny</mat-icon>
+        </h2>
+    </mat-card-footer>
+  </mat-card>
+  

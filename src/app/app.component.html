@@ -1,0 +1,17 @@
+<body>
+  <mat-toolbar style="opacity: 0.9">
+    <mat-tab-group
+      animationDuration="0ms"
+      [selectedIndex]="selectedTabIndex"
+      (selectedTabChange)="onTabChange($event)"
+    >
+      <mat-tab label="Current Weather"></mat-tab>
+      <mat-tab label="Forecast"></mat-tab>
+    </mat-tab-group>
+  </mat-toolbar>
+
+  <div style="padding: 40px">
+    <router-outlet></router-outlet>
+  </div>
+
+</body>
